@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-const StyledMain = styled.main`
+import Creator from './Creator'
+import H1 from '../components/H1'
+
+const StyledMain = styled.div`
     height:100vh;
     width:100vw;
-    background-color: black;
+    background-color: #4a769b;
     overflow:hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const StyledFlakesWrapper = styled.div`
+    position: fixed; 
+    top: 0;
+    left:0;
+    background-color: red;
 `;
 
 const StyledFlake = styled.div`
@@ -17,7 +31,6 @@ const StyledFlake = styled.div`
     top: ${({ valY }) => valY + 'px'};
     left: ${({ valX }) => valX + 'vw'};
     animation: snowing 10s linear infinite both  ${({ valY }) => -valY / 10 + 's'};
-    /* animation: snowing-sides 2s ease infinite both alternate; */
 
     @keyframes snowing{
         0%{
@@ -45,13 +58,16 @@ const Main = () => {
         for (let i = 0; i < 100; i++) {
             let j = Math.floor(Math.random() * (100 - 5 + 1)) + 5;
             setFlakesArray(flakesArray => [...flakesArray, { Ypos: -j, Xpos: i + 1 }]);
-            console.log(flakesArray)
         }
     }, [])
 
     return (
         <StyledMain>
-            {flakesArray.map((flake) => <StyledFlake valX={flake.Xpos} valY={flake.Ypos} />)}
+            <H1>List do Świętego Mikołaja</H1>
+            <StyledFlakesWrapper>
+                {flakesArray.map((flake) => <StyledFlake valX={flake.Xpos} valY={flake.Ypos} />)}
+            </StyledFlakesWrapper>
+            <Creator />
         </StyledMain>
     )
 }
