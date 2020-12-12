@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import Creator from './Creator'
+import Viewer from './Viewer'
 import H1 from '../components/H1'
 
 const StyledMain = styled.div`
@@ -68,6 +69,7 @@ const Main = () => {
                 {flakesArray.map((flake) => <StyledFlake valX={flake.Xpos} valY={flake.Ypos} />)}
             </StyledFlakesWrapper>
             <Creator />
+            <Viewer />
         </StyledMain>
     )
 }

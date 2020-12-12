@@ -29,7 +29,7 @@ const Creator = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dataContext.setContextData(data)
-        // console.log(data, dataContext.contextData)
+        console.log(data, dataContext.contextData)
     }
 
     return (
