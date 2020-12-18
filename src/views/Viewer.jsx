@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components'
 
 import PDF from './PDF'
@@ -17,21 +17,7 @@ const StyledCreator = styled.form`
 `;
 
 const Viewer = () => {
-    const [data, setData] = useState({
-        title: '',
-        intro: '',
-        main: '',
-        ending: '',
-        signature: '',
-    })
-
     const dataContext = useContext(DataContext)
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dataContext.setContextData(data)
-        // console.log(data, dataContext.contextData)
-    }
     return (
         <StyledCreator>
             <h2>{dataContext.contextData.title}</h2>

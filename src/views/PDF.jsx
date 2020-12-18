@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import { renderToString } from "react-dom/server";
 import jsPDF from "jspdf";
 
@@ -8,15 +7,14 @@ const styles = {
     textAlign: "center"
 };
 const colstyle = {
-    width: "30%",
-    color: 'red',
+    width: "30%"
 };
 const tableStyle = {
     width: "100%"
 };
 const Prints = () => (
     <div>
-        <h3 style={colstyle}>Time Materials Statement of Work (SOW)</h3>
+        <h3>Time & Materials Statement of Work (SOW)</h3>
         <h4>General Information</h4>
     </div>
 );
@@ -24,16 +22,10 @@ const Prints = () => (
 const print = (e) => {
     e.preventDefault()
     const string = renderToString(<Prints />);
+    const pdf = new jsPDF("p", "mm", "a4");
 
-    var doc = new jsPDF();
-
-    doc.html(string, {
-        callback: function (doc) {
-            doc.save();
-        },
-        x: 10,
-        y: 10
-    });
+    pdf.fromHTML(string);
+    pdf.save("pdf");
 };
 
 const PDF = () => (
