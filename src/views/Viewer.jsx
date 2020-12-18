@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components'
 
+import PDF from './PDF'
 import DataContext from '../context/DataContext'
 
 const StyledCreator = styled.form`
@@ -38,6 +39,7 @@ const Viewer = () => {
             <p>{dataContext.contextData.main}</p>
             <p>{dataContext.contextData.ending}</p>
             <h3>{dataContext.contextData.signature}</h3>
+            <PDF />
         </StyledCreator>
     )
 }
