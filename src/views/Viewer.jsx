@@ -1,32 +1,26 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components'
+import React from 'react';
 
-import PDF from './PDF'
-import DataContext from '../context/DataContext'
+const divStyle = {
+    backgroundColor: 'blue',
+    textAlign: "center"
+}
 
-const StyledCreator = styled.form`
-    width: 30vw;
-    padding: 10px;
-    margin: 0;
-    border: 2px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
+const h2Style = {
+    fontSize: '15px',
+    color: 'red',
+    textAlign: 'center'
+}
 
-const Viewer = () => {
-    const dataContext = useContext(DataContext)
+const Viewer = ({ title, intro, main, ending, signature }) => {
     return (
-        <StyledCreator>
-            <h2>{dataContext.contextData.title}</h2>
-            <h4>{dataContext.contextData.intro}</h4>
-            <p>{dataContext.contextData.main}</p>
-            <p>{dataContext.contextData.ending}</p>
-            <h3>{dataContext.contextData.signature}</h3>
-            <PDF />
-        </StyledCreator>
+        <div style={divStyle}>
+            <h2 style={h2Style}>{title}</h2>
+            <h3>{intro}</h3>
+            <p>{main}</p>
+            <p>{ending}</p>
+            <h3>{signature}</h3>
+
+        </div>
     )
 }
 
