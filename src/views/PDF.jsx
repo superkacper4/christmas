@@ -10,6 +10,7 @@ const PDF = () => {
     const dataContext = useContext(DataContext)
     const print = (e) => {
         e.preventDefault();
+        window.scroll(0, 0);
         html2canvas(document.getElementById("viewer"))
             .then((canvas) => {
                 const imgData = canvas.toDataURL('image/png');
@@ -33,8 +34,8 @@ const PDF = () => {
                 signature={dataContext.contextData.signature}
             />
             <div name="CodeSandbox" />
-            <h2>Start editing to see some magic happen {"\u2728"}</h2>
-            <button onClick={print}>print</button>
+            <h2>Zapisz list! {"\u2728"}</h2>
+            <button onClick={print}>Pobierz</button>
         </div>
     );
 }

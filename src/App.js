@@ -6,7 +6,7 @@ import DataProvider from './context/DataProvider'
 import Main from './views/Main.jsx'
 
 const StyledApp = styled.main`
-  overflow-y: hidden;
+  overflow-x: hidden;
 `;
 
 const App = () => {

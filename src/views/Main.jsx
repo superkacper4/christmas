@@ -6,9 +6,9 @@ import PDF from './PDF'
 import H1 from '../components/H1'
 
 const StyledMain = styled.div`
-    height:100vh;
+    min-height:100vh;
     width:100vw;
-    background-color: #4a769b;
+    background-color: #47a74f;
     overflow:hidden;
     display: flex;
     justify-content: center;
@@ -64,7 +64,7 @@ const Main = () => {
 
     return (
         <StyledMain>
-            <H1>List do Świętego Mikołaja</H1>
+            <H1>List do Świętego Mikołaja 🎅</H1>
             <StyledFlakesWrapper>
                 {flakesArray.map((flake) => <StyledFlake valX={flake.Xpos} valY={flake.Ypos} />)}
             </StyledFlakesWrapper>

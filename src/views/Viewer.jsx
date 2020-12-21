@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
     background-color: #e6dcbd;
     border: solid 3px #c25151;
     padding: 50px ;
-    width: 60vh;
+    width: 30vw;
     position: relative;
 `;
 
