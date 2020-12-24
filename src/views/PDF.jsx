@@ -1,10 +1,20 @@
 import React, { useContext } from "react";
+import styled from 'styled-components';
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
 import Viewer from './Viewer'
 
+import Button from '../components/Button'
+
 import DataContext from '../context/DataContext'
 
+const StyledPDF = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+`;
 
 const PDF = () => {
     const dataContext = useContext(DataContext)
@@ -25,7 +35,7 @@ const PDF = () => {
     };
 
     return (
-        <div>
+        <StyledPDF>
             <Viewer
                 title={dataContext.contextData.title}
                 intro={dataContext.contextData.intro}
@@ -35,8 +45,8 @@ const PDF = () => {
             />
             <div name="CodeSandbox" />
             <h2>Zapisz list! {"\u2728"}</h2>
-            <button onClick={print}>Pobierz</button>
-        </div>
+            <Button onClick={print}>Pobierz</Button>
+        </StyledPDF>
     );
 }
 

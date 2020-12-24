@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import GlobalStyle from './style/GlobalStyle'
+
 import DataProvider from './context/DataProvider'
 
 import Main from './views/Main.jsx'
@@ -12,6 +14,7 @@ const StyledApp = styled.main`
 const App = () => {
   return (
     <DataProvider>
+      <GlobalStyle />
       <StyledApp>
         <Main />
       </StyledApp>

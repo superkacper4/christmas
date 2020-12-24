@@ -5,8 +5,12 @@ const StyledDiv = styled.div`
     background-color: #e6dcbd;
     border: solid 3px #c25151;
     padding: 50px ;
-    width: 30vw;
+    width: 90vw;
     position: relative;
+
+    @media (min-width:768px){
+        width: 30vw;
+    }
 `;
 
 const StyledGift = styled.div`

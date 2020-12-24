@@ -14,6 +14,7 @@ const StyledMain = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 5px;
 `;
 
 const StyledFlakesWrapper = styled.div`
@@ -56,17 +57,29 @@ const Main = () => {
     const [flakesArray, setFlakesArray] = useState([]);
 
     useEffect(() => {
-        for (let i = 0; i < 100; i++) {
-            let j = Math.floor(Math.random() * (100 - 5 + 1)) + 5;
-            setFlakesArray(flakesArray => [...flakesArray, { Ypos: -j, Xpos: i + 1 }]);
+        let numOfFlakes;
+        let flakesXpos;
+        if (window.innerWidth >= 1024) {
+            numOfFlakes = 100
+            flakesXpos = 1;
         }
+        else {
+            numOfFlakes = 50
+            flakesXpos = 2;
+        }
+
+        for (let i = 0; i < numOfFlakes; i++) {
+            let j = Math.floor(Math.random() * (100 - 5 + 1)) + 5;
+            setFlakesArray(flakesArray => [...flakesArray, { Ypos: -j, Xpos: i * flakesXpos + 1 }]);
+        }
+
     }, [])
 
     return (
         <StyledMain>
             <H1>List do Świętego Mikołaja 🎅</H1>
             <StyledFlakesWrapper>
-                {flakesArray.map((flake) => <StyledFlake valX={flake.Xpos} valY={flake.Ypos} />)}
+                {flakesArray.map((flake) => <StyledFlake key={flake.Xpos} valX={flake.Xpos} valY={flake.Ypos} />)}
             </StyledFlakesWrapper>
             <Creator />
             <PDF />
